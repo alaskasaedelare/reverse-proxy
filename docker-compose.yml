@@ -1,6 +1,6 @@
 services:
   app:
-    image: 'jc21/nginx-proxy-manager:latest'
+    image: 'jc21/nginx-proxy-manager:2.13.7'
     restart: unless-stopped
     ports:
       - '80:80'      # HTTP Traffic
@@ -14,5 +14,5 @@ services:
 
 networks:
   proxy_net:
-    name: proxy_net
+    name: reverse_proxy_net
     driver: bridge
