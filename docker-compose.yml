@@ -1,14 +1,15 @@
+version: '3.8'
 services:
   app:
     image: 'jc21/nginx-proxy-manager:2.13.7'
     restart: unless-stopped
     ports:
-      - '80:80'      # HTTP Traffic
-      - '81:81'      # Admin Interface
-      - '443:443'    # HTTPS Traffic
+      - '80:80'
+      - '81:81'
+      - '443:443'
     volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
+      - npm_data:/data
+      - npm_letsencrypt:/etc/letsencrypt
     networks:
       - proxy_net
 
@@ -16,3 +17,8 @@ networks:
   proxy_net:
     name: reverse_proxy_net
     driver: bridge
+
+# Hier werden die Speicherorte definiert
+volumes:
+  npm_data:
+  npm_letsencrypt:
