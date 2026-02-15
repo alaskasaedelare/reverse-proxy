@@ -10,7 +10,7 @@ services:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
     networks:
-      - proxy_net
+      - reverse_proxy_net
 
 networks:
   proxy_net:
